@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-    Curso
+    Docente
 @endsection
 
 @section('content')
@@ -13,11 +13,11 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('Curso') }}
+                                {{ __('Docente') }}
                             </span>
 
                              <div class="float-right">
-                                <a href="{{ route('cursos.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
+                                <a href="{{ route('docentes.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
                                   {{ __('Crear Nuevo') }}
                                 </a>
                               </div>
@@ -36,31 +36,39 @@
                                     <tr>
                                         <th>No</th>
                                         
-										<th>Nombre</th>
-										<th>Descripcion</th>
-										<th>Duracion</th>
+										<th>Nombres</th>
+										<th>Apellidos</th>
+										<th>Diploma</th>
+										<th>Edad</th>
+										<th>Fecha Contrato</th>
 										<th>Imagen</th>
+										<th>Documento</th>
+										<th>Id Materia</th>
 
                                         <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($cursos as $curso)
+                                    @foreach ($docentes as $docente)
                                         <tr>
                                             <td>{{ ++$i }}</td>
                                             
-											<td>{{ $curso->nombre }}</td>
-											<td>{{ $curso->descripcion }}</td>
-											<td>{{ $curso->duracion }}</td>
-											<td>{{ $curso->imagen }}</td>
+											<td>{{ $docente->nombres }}</td>
+											<td>{{ $docente->apellidos }}</td>
+											<td>{{ $docente->diploma }}</td>
+											<td>{{ $docente->edad }}</td>
+											<td>{{ $docente->fecha_contrato }}</td>
+											<td>{{ $docente->imagen }}</td>
+											<td>{{ $docente->documento }}</td>
+											<td>{{ $docente->id_materia }}</td>
 
                                             <td>
-                                                <form action="{{ route('cursos.destroy',$curso->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('cursos.show',$curso->id) }}"><i class="fa fa-fw fa-eye"></i> Detalles</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('cursos.edit',$curso->id) }}"><i class="fa fa-fw fa-edit"></i> Editar</a>
+                                                <form action="{{ route('docentes.destroy',$docente->id) }}" method="POST">
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('docentes.show',$docente->id) }}"><i class="fa fa-fw fa-eye"></i> Detalle</a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('docentes.edit',$docente->id) }}"><i class="fa fa-fw fa-edit"></i> Editar</a>
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Eliminar </button>
+                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Eliminar</button>
                                                 </form>
                                             </td>
                                         </tr>
@@ -70,7 +78,7 @@
                         </div>
                     </div>
                 </div>
-                {!! $cursos->links() !!}
+                {!! $docentes->links() !!}
             </div>
         </div>
     </div>

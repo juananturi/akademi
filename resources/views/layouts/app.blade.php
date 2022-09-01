@@ -38,12 +38,12 @@
                         <li class="nav-item">
                             <a class="nav-link fs-3 text-dark" href="{{ url('/cursos') }}">{{ __('Curso') }}</a>
                         </li>
-                    {{--     <li class="nav-item">
+                        <li class="nav-item">
                             <a class="nav-link fs-3 text-dark" href="{{ url('/docentes') }}">{{ __('Docentes') }}</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link fs-3 text-dark" href="{{ url('/estudiantes') }}">{{ __('Estudiantes') }}</a>
-                        </li> --}}
+                        </li> 
                     </ul>
 
                     <!-- Right Side Of Navbar -->

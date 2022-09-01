@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Curso;
+use App\Models\Docente;
 use Illuminate\Http\Request;
 
 /**
- * Class CursoController
+ * Class DocenteController
  * @package App\Http\Controllers
  */
-class CursoController extends Controller
+class DocenteController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,10 +18,10 @@ class CursoController extends Controller
      */
     public function index()
     {
-        $cursos = Curso::paginate();
+        $docentes = Docente::paginate();
 
-        return view('curso.index', compact('cursos'))
-            ->with('i', (request()->input('page', 1) - 1) * $cursos->perPage());
+        return view('docente.index', compact('docentes'))
+            ->with('i', (request()->input('page', 1) - 1) * $docentes->perPage());
     }
 
     /**
@@ -31,8 +31,8 @@ class CursoController extends Controller
      */
     public function create()
     {
-        $curso = new Curso();
-        return view('curso.create', compact('curso'));
+        $docente = new Docente();
+        return view('docente.create', compact('docente'));
     }
 
     /**
@@ -43,12 +43,12 @@ class CursoController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate(Curso::$rules);
+        request()->validate(Docente::$rules);
 
-        $curso = Curso::create($request->all());
+        $docente = Docente::create($request->all());
 
-        return redirect()->route('cursos.index')
-            ->with('success', 'Curso creado satisfactoriamente.'); 
+        return redirect()->route('docentes.index')
+            ->with('success', 'Docente created successfully.');
     }
 
     /**
@@ -59,9 +59,9 @@ class CursoController extends Controller
      */
     public function show($id)
     {
-        $curso = Curso::find($id);
+        $docente = Docente::find($id);
 
-        return view('curso.show', compact('curso'));
+        return view('docente.show', compact('docente'));
     }
 
     /**
@@ -72,26 +72,26 @@ class CursoController extends Controller
      */
     public function edit($id)
     {
-        $curso = Curso::find($id);
+        $docente = Docente::find($id);
 
-        return view('curso.edit', compact('curso'));
+        return view('docente.edit', compact('docente'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request $request
-     * @param  Curso $curso
+     * @param  Docente $docente
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Curso $curso)
+    public function update(Request $request, Docente $docente)
     {
-        request()->validate(Curso::$rules);
+        request()->validate(Docente::$rules);
 
-        $curso->update($request->all());
+        $docente->update($request->all());
 
-        return redirect()->route('cursos.index')
-            ->with('success', 'Curso updated successfully');
+        return redirect()->route('docentes.index')
+            ->with('success', 'Docente updated successfully');
     }
 
     /**
@@ -101,9 +101,9 @@ class CursoController extends Controller
      */
     public function destroy($id)
     {
-        $curso = Curso::find($id)->delete();
+        $docente = Docente::find($id)->delete();
 
-        return redirect()->route('cursos.index')
-            ->with('success', 'Curso eliminado exitosamente');
+        return redirect()->route('docentes.index')
+            ->with('success', 'Docente deleted successfully');
     }
 }

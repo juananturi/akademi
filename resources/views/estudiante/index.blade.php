@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-    Curso
+    Estudiante
 @endsection
 
 @section('content')
@@ -13,11 +13,11 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('Curso') }}
+                                {{ __('Estudiante') }}
                             </span>
 
                              <div class="float-right">
-                                <a href="{{ route('cursos.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
+                                <a href="{{ route('estudiantes.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
                                   {{ __('Crear Nuevo') }}
                                 </a>
                               </div>
@@ -36,31 +36,45 @@
                                     <tr>
                                         <th>No</th>
                                         
-										<th>Nombre</th>
-										<th>Descripcion</th>
-										<th>Duracion</th>
-										<th>Imagen</th>
+										<th>Nombres</th>
+										<th>Apellido1</th>
+										<th>Apellido2</th>
+										<th>Tipo Doc</th>
+										<th>Numero Doc</th>
+										<th>Doc Identidad</th>
+										<th>Genero</th>
+										<th>Estrato</th>
+										<th>Id Municipio Nac</th>
+										<th>Id Municipio Exp</th>
+										<th>Id Curso</th>
 
                                         <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($cursos as $curso)
+                                    @foreach ($estudiantes as $estudiante)
                                         <tr>
                                             <td>{{ ++$i }}</td>
                                             
-											<td>{{ $curso->nombre }}</td>
-											<td>{{ $curso->descripcion }}</td>
-											<td>{{ $curso->duracion }}</td>
-											<td>{{ $curso->imagen }}</td>
+											<td>{{ $estudiante->nombres }}</td>
+											<td>{{ $estudiante->apellido1 }}</td>
+											<td>{{ $estudiante->apellido2 }}</td>
+											<td>{{ $estudiante->tipo_doc }}</td>
+											<td>{{ $estudiante->numero_doc }}</td>
+											<td>{{ $estudiante->doc_identidad }}</td>
+											<td>{{ $estudiante->genero }}</td>
+											<td>{{ $estudiante->estrato }}</td>
+											<td>{{ $estudiante->id_municipio_nac }}</td>
+											<td>{{ $estudiante->id_municipio_exp }}</td>
+											<td>{{ $estudiante->id_curso }}</td>
 
                                             <td>
-                                                <form action="{{ route('cursos.destroy',$curso->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('cursos.show',$curso->id) }}"><i class="fa fa-fw fa-eye"></i> Detalles</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('cursos.edit',$curso->id) }}"><i class="fa fa-fw fa-edit"></i> Editar</a>
+                                                <form action="{{ route('estudiantes.destroy',$estudiante->id) }}" method="POST">
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('estudiantes.show',$estudiante->id) }}"><i class="fa fa-fw fa-eye"></i> Detalle</a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('estudiantes.edit',$estudiante->id) }}"><i class="fa fa-fw fa-edit"></i> Editar</a>
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Eliminar </button>
+                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Eliminar</button>
                                                 </form>
                                             </td>
                                         </tr>
@@ -70,7 +84,7 @@
                         </div>
                     </div>
                 </div>
-                {!! $cursos->links() !!}
+                {!! $estudiantes->links() !!}
             </div>
         </div>
     </div>

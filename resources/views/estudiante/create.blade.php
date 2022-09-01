@@ -1,26 +1,25 @@
 @extends('layouts.app')
 
 @section('template_title')
-    Actualizar Curso
+    Crear Estudiante
 @endsection
 
 @section('content')
     <section class="content container-fluid">
-        <div class="">
+        <div class="row">
             <div class="col-md-12">
 
                 @includeif('partials.errors')
 
                 <div class="card card-default">
                     <div class="card-header">
-                        <span class="card-title">Actualizar Curso</span>
+                        <span class="card-title">Crear Estudiante</span>
                     </div>
                     <div class="card-body">
-                        <form method="POST" action="{{ route('cursos.update', $curso->id) }}"  role="form" enctype="multipart/form-data">
-                            {{ method_field('PATCH') }}
+                        <form method="POST" action="{{ route('estudiantes.store') }}"  role="form" enctype="multipart/form-data">
                             @csrf
 
-                            @include('curso.form')
+                            @include('estudiante.form')
 
                         </form>
                     </div>
