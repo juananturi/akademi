@@ -1,6 +1,6 @@
 <div class="box box-info padding-1">
     <div class="box-body">
-        
+
         <div class="form-group">
             {{ Form::label('nombres') }}
             {{ Form::text('nombres', $estudiante->nombres, ['class' => 'form-control' . ($errors->has('nombres') ? ' is-invalid' : ''), 'placeholder' => 'Nombres']) }}
@@ -16,9 +16,14 @@
             {{ Form::text('apellido2', $estudiante->apellido2, ['class' => 'form-control' . ($errors->has('apellido2') ? ' is-invalid' : ''), 'placeholder' => 'Apellido2']) }}
             {!! $errors->first('apellido2', '<div class="invalid-feedback">:message</div>') !!}
         </div>
-        <div class="form-group">
+        <div class="form-group ">
             {{ Form::label('tipo_doc') }}
-            {{ Form::text('tipo_doc', $estudiante->tipo_doc, ['class' => 'form-control' . ($errors->has('tipo_doc') ? ' is-invalid' : ''), 'placeholder' => 'Tipo Documento']) }}
+            <select class="form-control" name="tipo_doc" id="tipo_doc">
+                <option value="CC">CC</option>
+                <option value="PASS">PASS</option>
+                <option value="TI">TI</option>
+            </select>
+
             {!! $errors->first('tipo_doc', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">

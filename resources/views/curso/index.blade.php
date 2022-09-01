@@ -35,7 +35,7 @@
                                 <thead class="thead">
                                     <tr>
                                         <th>No</th>
-                                        
+
 										<th>Nombre</th>
 										<th>Descripcion</th>
 										<th>Duracion</th>
@@ -48,7 +48,7 @@
                                     @foreach ($cursos as $curso)
                                         <tr>
                                             <td>{{ ++$i }}</td>
-                                            
+
 											<td>{{ $curso->nombre }}</td>
 											<td>{{ $curso->descripcion }}</td>
 											<td>{{ $curso->duracion }}</td>

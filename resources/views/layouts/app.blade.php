@@ -24,7 +24,7 @@
             <div class="container-fluid">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <img src="{{asset('logo.png')}}" alt="Logotipo de la academia " width="120">
-                  
+
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -43,7 +43,7 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link fs-3 text-dark" href="{{ url('/estudiantes') }}">{{ __('Estudiantes') }}</a>
-                        </li> 
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

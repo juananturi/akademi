@@ -35,7 +35,7 @@
                                 <thead class="thead">
                                     <tr>
                                         <th>No</th>
-                                        
+
 										<th>Nombres</th>
 										<th>Apellidos</th>
 										<th>Diploma</th>
@@ -52,7 +52,7 @@
                                     @foreach ($docentes as $docente)
                                         <tr>
                                             <td>{{ ++$i }}</td>
-                                            
+
 											<td>{{ $docente->nombres }}</td>
 											<td>{{ $docente->apellidos }}</td>
 											<td>{{ $docente->diploma }}</td>

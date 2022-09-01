@@ -16,7 +16,7 @@
                         <div class="col-4 p-3"><img src="{{asset('img1.jpg')}}" style="width: 90%" alt=""></div>
                         <div class="col-4 p-3"><img src="{{asset('img2.jpg')}}" style="width: 90%" alt=""></div>
                         <div class="col-4 p-3"><img src="{{asset('img3.jpg')}}" style="width: 90%" alt=""></div>
-                   
+
                 </div>
             </div>
         </div>
