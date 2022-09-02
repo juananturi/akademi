@@ -43,9 +43,19 @@ class CursoController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate(Curso::$rules);
+        $curso = request()->except('_token');
 
-        $curso = Curso::create($request->all());
+        if ($request->hasFile('imagen')){
+            $curso['imagen']=$request->file('imagen')->store('curso','public');
+        }
+
+        Curso::insert($curso);
+        /* request()->validate(Curso::$rules);
+        if($request->hasFile('imagen')){
+            $file = $request->file('imagen');
+        }
+
+        $curso = Curso::create($request->all()); */
 
         return redirect()->route('cursos.index')
             ->with('success', 'Curso creado satisfactoriamente.'); 
